@@ -1,14 +1,16 @@
 import React from "react";
 
-export const Book = ({ title, author, publicationDate}) => {
-    return (
-        <div>
-            <hr />
-            <h2>{title}</h2>
-            <h3>{author}</h3>
-            <h3>{publicationDate}</h3>
-        </div>
-    );
+export const Book = (props) => {
+  return (
+    <div>
+      <hr />
+      <h2>{props.title}</h2>
+      <h3>{props.author}</h3>
+      <h3>{props.publicationDate}</h3>
+      <h3>{props.genre}</h3>
+      <h3>{props.audience}</h3>
+    </div>
+  );
 };
 
-export default Book
+export default Book;
