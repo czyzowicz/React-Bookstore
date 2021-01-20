@@ -19,7 +19,7 @@ const App = () => {
   return (
     <div>
       <h1>React Bookstore</h1>
-      <Add />
+      <Add books={books} setBooks={setBooks} />
       <Inventory books={books} />
     </div>
   );
