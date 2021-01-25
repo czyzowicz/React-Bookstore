@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { Add } from "./Add.jsx";
 import { Inventory } from "./Inventory.jsx";
+import { Router } from "@reach/router";
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -19,8 +20,10 @@ const App = () => {
   return (
     <div>
       <h1>React Bookstore</h1>
-      <Add books={books} setBooks={setBooks} />
-      <Inventory books={books} />
+      <Router>
+        <Add books={books} setBooks={setBooks} path="/admin" />
+        <Inventory books={books} path="/" />
+      </Router>
     </div>
   );
 };
