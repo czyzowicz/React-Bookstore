@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "@reach/router";
 import Book from "./Book.jsx";
 
 export const Inventory = ({ books }) => {
@@ -18,6 +19,7 @@ export const Inventory = ({ books }) => {
   return (
     <React.Fragment>
       {books.length === 0 ? <h3>Brak Książek</h3> : bookComponents}
+      <Link to="/admin">Zarządzaj</Link>
     </React.Fragment>
   );
 };
