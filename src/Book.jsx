@@ -12,5 +12,3 @@ export const Book = (props) => {
     </div>
   );
 };
-
-export default Book;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
-import Book from "./Book.jsx";
+import { Book } from "./Book.jsx";
 
 export const Inventory = ({ books }) => {
   const bookComponents = books.map((book) => {
