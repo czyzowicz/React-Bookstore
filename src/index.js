@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App.jsx";
+import Wrapper from "./Wrapper.jsx";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Wrapper />
   </React.StrictMode>,
   document.getElementById("root")
 );

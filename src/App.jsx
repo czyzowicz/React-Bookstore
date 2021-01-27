@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { Add } from "./Add.jsx";
 import { Inventory } from "./Inventory.jsx";
 import { Router, Link } from "@reach/router";
+import { ADD_BOOK } from "./store/reducer.js";
 
 const App = () => {
-  const [books, setBooks] = useState([]);
+  const dispatch = useDispatch();
+  const books = useSelector((state) => state.reducer.books);
 
   useEffect(() => {
     fetch("https://clockworkjava.pl/books.php")
@@ -13,7 +15,9 @@ const App = () => {
         return response.json();
       })
       .then((data) => {
-        setBooks(data);
+        data.forEach((book) => {
+          dispatch({ type: ADD_BOOK, payload: book });
+        });
       });
   }, []);
 
@@ -23,13 +27,11 @@ const App = () => {
         <h1>React Bookstore</h1>
       </Link>
       <Router>
-        <Add books={books} setBooks={setBooks} path="/admin" />
+        <Add path="/admin" />
         <Inventory books={books} path="/" />
       </Router>
     </div>
   );
 };
-
-ReactDOM.render(<App />, document.getElementById("root"));
 
 export default App;
